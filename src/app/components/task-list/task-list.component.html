@@ -1,0 +1,36 @@
+<div class="filter-buttons">
+    <button
+      (click)="filter = 'all'"
+      [class.active]="filter === 'all'"
+      class="filter-btn"
+    >
+      Toutes
+    </button>
+    <button
+      (click)="filter = 'active'"
+      [class.active]="filter === 'active'"
+      class="filter-btn"
+    >
+      En cours
+    </button>
+    <button
+      (click)="filter = 'completed'"
+      [class.active]="filter === 'completed'"
+      class="filter-btn"
+    >
+      Complétées
+    </button>
+  </div>
+  
+  <div class="task-list">
+    <div *ngIf="filteredTasks.length === 0" class="empty-state">
+      <p>📭 Aucune tâche à afficher</p>
+    </div>
+  
+    <app-task-item
+      *ngFor="let task of filteredTasks"
+      [task]="task"
+      (taskToggled)="onTaskToggled($event)"
+      (taskDeleted)="onTaskDeleted($event)"
+    ></app-task-item>
+  </div>

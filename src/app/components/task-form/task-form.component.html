@@ -1,0 +1,12 @@
+<div class="add-task-section">
+    <input
+      type="text"
+      [(ngModel)]="newTask"
+      (keyup.enter)="addTask()"
+      placeholder="Ajouter une nouvelle tâche..."
+      class="task-input"
+    />
+    <button (click)="addTask()" class="add-button">
+      ➕ Ajouter
+    </button>
+  </div>

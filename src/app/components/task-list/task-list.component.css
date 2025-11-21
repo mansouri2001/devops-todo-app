@@ -1,0 +1,47 @@
+.filter-buttons {
+    padding: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background: white;
+  }
+  
+  .filter-btn {
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #374151;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+  }
+  
+  .filter-btn:hover {
+    background: #e5e7eb;
+    transform: translateY(-2px);
+  }
+  
+  .filter-btn.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+  }
+  
+  .task-list {
+    padding: 1.5rem;
+    min-height: 300px;
+    background: white;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #9ca3af;
+  }
+  
+  .empty-state p {
+    font-size: 1.2rem;
+    margin: 0;
+  }

@@ -1,0 +1,11 @@
+<div class="task-item" [class.completed]="task.completed">
+    <button (click)="toggleTask()" class="checkbox">
+      <span *ngIf="task.completed">✓</span>
+    </button>
+  
+    <span class="task-text">{{ task.text }}</span>
+  
+    <button (click)="deleteTask()" class="delete-btn">
+      🗑️
+    </button>
+  </div>
