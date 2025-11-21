@@ -1,27 +1,48 @@
 # TodoAppAngular
+This project is a simple Angular application that I containerized using Docker.
+I also added a GitHub Actions CI pipeline, docker-compose, and K8s files .
+The goal is to show how an application goes from source code → container → orchestration → automation.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
 
-## Development server
+# Project Structure 
+ .
+    Dockerfile              # Multi-stage build
+    docker-compose.yml      # Run locally with Docker
+    k8s/                    # Kubernetes files
+       deployment.yaml
+       service.yaml
+    .github/workflows/
+         ci.yml              # CI pipeline
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Tools Used
 
-## Code scaffolding
+Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Node.js 20
 
-## Build
+Docker
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Docker Compose
 
-## Running unit tests
+Kubernetes 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+GitHub Actions
 
-## Running end-to-end tests
+# Docker – Multi-Stage Build for Angular App
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This project uses Docker to build and run an Angular application in production mode.
+The image is created with two stages: one for building the app, and one for serving it with Nginx.
 
-## Further help
+# Run  app with Docker
+docker build -t todo-app:v1 .
+docker run -d -p 8080:80 --name todo-app todo-app:v1
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Kubernetes
+Basic manifests are provided:
+
+deployment.yaml: deploys the Angular app
+
+service.yaml:  To exposes it 
+
+# CI Pipeline (GitHub Actions)
+The repository contains a CI workflow triggered on each push or pull request 
